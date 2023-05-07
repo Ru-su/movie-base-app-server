@@ -1,4 +1,4 @@
-# movie-base-app-server
+# Full Stack Movie Base App: Server
 
 Full Stack movie base application: REST API server and Database
 
