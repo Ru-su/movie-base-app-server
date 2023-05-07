@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email              String  @unique
+  verificationStatus Boolean
+  hash               String
+
+  fisrstName String?
+  lastName   String?
+
+  Favorite Favorite[]
+
+  @@map("Users")
+}
+
+model Token {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  token  Int @unique
+  userId Int
+
+  @@map("Tokens")
+}
+
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  userId   Int
+  title    String
+  favorite Boolean
+
+  user User @relation(fields: [userId], references: [id])
+
+  Movie Movie[]
+
+  @@map("Favorites")
+}
+
+model Movie {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  movieId     Int
+  // movie       String?
+  description String
+
+  favorite Favorite @relation(fields: [movieId], references: [id])
+
+  @@map("Movies")
+}
