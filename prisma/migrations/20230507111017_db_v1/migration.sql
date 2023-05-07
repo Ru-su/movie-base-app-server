@@ -28,7 +28,7 @@ CREATE TABLE "Favorites" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "userId" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
-    "favorite" BOOLEAN NOT NULL,
+    "poster" TEXT NOT NULL,
 
     CONSTRAINT "Favorites_pkey" PRIMARY KEY ("id")
 );
@@ -37,7 +37,7 @@ CREATE TABLE "Favorites" (
 CREATE TABLE "Movies" (
     "id" SERIAL NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "movieId" INTEGER NOT NULL,
+    "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
 
     CONSTRAINT "Movies_pkey" PRIMARY KEY ("id")
@@ -51,6 +51,3 @@ CREATE UNIQUE INDEX "Tokens_token_key" ON "Tokens"("token");
 
 -- AddForeignKey
 ALTER TABLE "Favorites" ADD CONSTRAINT "Favorites_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Movies" ADD CONSTRAINT "Movies_movieId_fkey" FOREIGN KEY ("movieId") REFERENCES "Favorites"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

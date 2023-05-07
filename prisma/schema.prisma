@@ -41,13 +41,11 @@ model Favorite {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
-  userId   Int
-  title    String
-  favorite Boolean
+  userId Int
+  title  String
+  poster String
 
   user User @relation(fields: [userId], references: [id])
-
-  Movie Movie[]
 
   @@map("Favorites")
 }
@@ -56,11 +54,9 @@ model Movie {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
-  movieId     Int
+  title       String
   // movie       String?
   description String
-
-  favorite Favorite @relation(fields: [movieId], references: [id])
 
   @@map("Movies")
 }
