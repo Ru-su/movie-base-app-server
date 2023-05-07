@@ -1,6 +1,6 @@
-# full-stack-movie-base-app
+# movie-base-app-server
 
-Full Stack movie base application
+Full Stack movie base application: REST API server and Database
 
 ## Running the app
 
