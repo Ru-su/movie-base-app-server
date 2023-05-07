@@ -32,6 +32,7 @@ $ npm run db:dev:restart
 - [ ] Create a Docker container for the server
 - [ ] Add automated tests
 - [ ] Add GraphQL queries
+- [ ] Replace the token generator with a stronger one
 
 ## ORM
 
