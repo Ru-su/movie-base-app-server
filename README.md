@@ -23,6 +23,7 @@ $ npm run db:dev:restart
 
 ## ToDo List
 
+Main:
 - [x] Create a basic authentication system
 - [x] Create a mail verification system
 - [x] Create a basic password refresh system
@@ -30,6 +31,8 @@ $ npm run db:dev:restart
 - [x] Create _favorites_ endpoints
 - [x] Create _movies_ endpoints
 - [ ] Create a Docker container for the server
+
+Bonus:
 - [ ] Add automated tests
 - [ ] Add GraphQL queries
 - [ ] Replace the token generator with a stronger one
